@@ -24,12 +24,12 @@
                                     </thead>
                                     <tbody>
 
-                                            @foreach ($scores as $key => $score)
+                                            @foreach ($scores as $score)
                                                 <tr class="text-center">
-                                                    <td>{{ $key +1 }} </td>
+                                                    <td>{{ $loop->index +1 }} </td>
                                                     <td>{{ $score->value }}</td>
                                                     <td>{{ $score->user->name }}</td>
-                                                    <td>{{ $score->created_at }}</td>
+                                                    <td>{{ date_format(($score->created_at), 'd-m-Y H:i' ) }}</td>
                                                 </tr>
                                             @endforeach
 
