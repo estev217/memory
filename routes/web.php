@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/welcome', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/hello', function () {
     return view('hello');
@@ -27,3 +27,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/scores', 'ScoreController@index')->name('scores');
