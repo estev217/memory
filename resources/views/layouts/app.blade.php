@@ -36,6 +36,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('scores') }}">Meilleurs scores</a>
                         </li>
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('game') }}">Lancer une partie</a>
+                            </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
