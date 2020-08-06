@@ -31,3 +31,5 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/scores', 'ScoreController@index')->name('scores');
 
 Route::get('/user_scores', 'ScoreController@scores')->name('user_scores');
+
+Route::get('/game', 'ScoreController@game')->name('game');

@@ -13,9 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('Vous êtes connecté') }}
-
+                    <div class="d-flex flex-row justify-content-center">
+                        <a class="btn btn-lg btn-outline-primary" href="{{ route('game') }}">Lancer une partie</a>
+                    </div>
                 </div>
             </div>
         </div>
