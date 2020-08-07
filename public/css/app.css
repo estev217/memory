@@ -10970,6 +10970,6 @@ a.text-dark:focus {
 }
 
 .card-clicked {
-  display: none;
+  opacity: 0.5;
 }
 
