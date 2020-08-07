@@ -2,6 +2,17 @@
     flex-wrap: wrap;
 }
 
-.score-validation {
+.end-buttons-off {
     display: none;
+    text-align: center;
 }
+
+.end-buttons-on {
+    display: block;
+    text-align: center;
+}
+
+.card-clicked {
+    opacity: 0.5;
+}
+

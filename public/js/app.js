@@ -49727,6 +49727,8 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _game__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./game */ "./resources/js/game.js");
+/* harmony import */ var _game__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_game__WEBPACK_IMPORTED_MODULE_1__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -49754,12 +49756,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('example-component', __webp
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  el: '#app',
-  data: {
-    texte: 'HELLOOOO'
-  }
-});
+
 
 /***/ }),
 
@@ -49874,6 +49871,69 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/game.js":
+/*!******************************!*\
+  !*** ./resources/js/game.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var score = document.getElementById('clicks-done');
+var card1 = document.getElementById('card1').addEventListener('click', clicksUp);
+var card2 = document.getElementById('card2').addEventListener('click', clicksUp);
+var card3 = document.getElementById('card3').addEventListener('click', clicksUp);
+var card4 = document.getElementById('card4').addEventListener('click', clicksUp);
+var card5 = document.getElementById('card5').addEventListener('click', clicksUp);
+var card6 = document.getElementById('card6').addEventListener('click', clicksUp);
+var card7 = document.getElementById('card7').addEventListener('click', clicksUp);
+var card8 = document.getElementById('card8').addEventListener('click', clicksUp);
+var card9 = document.getElementById('card9').addEventListener('click', clicksUp);
+var card10 = document.getElementById('card10').addEventListener('click', clicksUp);
+var card11 = document.getElementById('card11').addEventListener('click', clicksUp);
+var card12 = document.getElementById('card12').addEventListener('click', clicksUp);
+var card13 = document.getElementById('card13').addEventListener('click', clicksUp);
+var card14 = document.getElementById('card14').addEventListener('click', clicksUp);
+var card15 = document.getElementById('card15').addEventListener('click', clicksUp);
+var card16 = document.getElementById('card16').addEventListener('click', clicksUp);
+var card17 = document.getElementById('card17').addEventListener('click', clicksUp);
+var card18 = document.getElementById('card18').addEventListener('click', clicksUp);
+var buttons = document.getElementById('end-buttons');
+var choice1,
+    choice2 = false;
+var cardName1, cardName2;
+var pairs = 0;
+
+function clicksUp() {
+  score.innerText++;
+  this.className += " card-clicked";
+
+  if (!choice1) {
+    choice1 = this.src;
+    cardName1 = this.id;
+  } else {
+    choice2 = this.src;
+    cardName2 = this.id;
+
+    if (choice2 === choice1) {
+      pairs++;
+      choice1 = false;
+      choice2 = false;
+
+      if (pairs === 9) {
+        buttons.className = "end-buttons-on";
+        alert('Bravo, vous avez trouvé les 9 paires en ' + score.innerText + ' coups !!!');
+      }
+    } else {
+      choice1 = false;
+      choice2 = false;
+      document.getElementById(cardName1).className = "img-thumbnail";
+      document.getElementById(cardName2).className = "img-thumbnail";
+    }
+  }
+}
 
 /***/ }),
 
