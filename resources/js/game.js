@@ -1,4 +1,5 @@
 let score = document.getElementById('clicks-done');
+
 let card1 = document.getElementById('card1').addEventListener('click', clicksUp);
 let card2 = document.getElementById('card2').addEventListener('click', clicksUp);
 let card3 = document.getElementById('card3').addEventListener('click', clicksUp);
@@ -18,6 +19,8 @@ let card16 = document.getElementById('card16').addEventListener('click', clicksU
 let card17 = document.getElementById('card17').addEventListener('click', clicksUp);
 let card18 = document.getElementById('card18').addEventListener('click', clicksUp);
 
+let buttons = document.getElementById('end-buttons');
+
 let choice1, choice2 = false;
 let cardName1, cardName2;
 let pairs = 0;
@@ -36,7 +39,8 @@ function clicksUp() {
             choice1 = false;
             choice2 = false;
             if (pairs === 9) {
-                alert('Bravo, vous avez trouvé les 9 paires !!!');
+                buttons.className = "end-buttons-on";
+                alert('Bravo, vous avez trouvé les 9 paires en ' + score.innerText + ' coups !!!');
             }
         } else {
             choice1 = false;

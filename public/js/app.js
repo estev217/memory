@@ -49900,6 +49900,7 @@ var card15 = document.getElementById('card15').addEventListener('click', clicksU
 var card16 = document.getElementById('card16').addEventListener('click', clicksUp);
 var card17 = document.getElementById('card17').addEventListener('click', clicksUp);
 var card18 = document.getElementById('card18').addEventListener('click', clicksUp);
+var buttons = document.getElementById('end-buttons');
 var choice1,
     choice2 = false;
 var cardName1, cardName2;
@@ -49922,7 +49923,8 @@ function clicksUp() {
       choice2 = false;
 
       if (pairs === 9) {
-        alert('Bravo, vous avez trouvé les 9 paires !!!');
+        buttons.className = "end-buttons-on";
+        alert('Bravo, vous avez trouvé les 9 paires en ' + score.innerText + ' coups !!!');
       }
     } else {
       choice1 = false;

@@ -30,9 +30,9 @@
                             <p id="clicks-done">0</p>
                             <input type="number" id="clicks" name="clicks" hidden>
                         </div>
-                        <div class="text-center">
-                            <a class="score-validation btn btn-lg btn-outline-primary mb-3">Enregistrer mon score et voir le classement</a>
-                            <a class="score-validation btn btn-lg btn-outline-danger" href="{{ route('game') }}">Lancer une nouvelle partie sans sauvegarder</a>
+                        <div class="end-buttons-off" id="end-buttons">
+                            <a class="btn btn-lg btn-outline-primary mb-3">Enregistrer mon score et voir le classement</a>
+                            <a class="btn btn-lg btn-outline-danger" href="{{ route('game') }}">Lancer une nouvelle partie sans sauvegarder</a>
                         </div>
                     </div>
                 </div>
