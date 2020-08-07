@@ -49881,32 +49881,56 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 var score = document.getElementById('clicks-done');
-var cards = document.getElementsByClassName('img-thumbnail');
-var card;
+var card1 = document.getElementById('card1').addEventListener('click', clicksUp);
+var card2 = document.getElementById('card2').addEventListener('click', clicksUp);
+var card3 = document.getElementById('card3').addEventListener('click', clicksUp);
+var card4 = document.getElementById('card4').addEventListener('click', clicksUp);
+var card5 = document.getElementById('card5').addEventListener('click', clicksUp);
+var card6 = document.getElementById('card6').addEventListener('click', clicksUp);
+var card7 = document.getElementById('card7').addEventListener('click', clicksUp);
+var card8 = document.getElementById('card8').addEventListener('click', clicksUp);
+var card9 = document.getElementById('card9').addEventListener('click', clicksUp);
+var card10 = document.getElementById('card10').addEventListener('click', clicksUp);
+var card11 = document.getElementById('card11').addEventListener('click', clicksUp);
+var card12 = document.getElementById('card12').addEventListener('click', clicksUp);
+var card13 = document.getElementById('card13').addEventListener('click', clicksUp);
+var card14 = document.getElementById('card14').addEventListener('click', clicksUp);
+var card15 = document.getElementById('card15').addEventListener('click', clicksUp);
+var card16 = document.getElementById('card16').addEventListener('click', clicksUp);
+var card17 = document.getElementById('card17').addEventListener('click', clicksUp);
+var card18 = document.getElementById('card18').addEventListener('click', clicksUp);
+var choice1,
+    choice2 = false;
+var cardName1, cardName2;
+var pairs = 0;
 
-var _iterator = _createForOfIteratorHelper(cards),
-    _step;
+function clicksUp() {
+  score.innerText++;
+  this.className += " card-clicked";
 
-try {
-  for (_iterator.s(); !(_step = _iterator.n()).done;) {
-    var clicksUp = function clicksUp() {
-      score.innerText++;
-    };
+  if (!choice1) {
+    choice1 = this.src;
+    cardName1 = this.id;
+  } else {
+    choice2 = this.src;
+    cardName2 = this.id;
 
-    card = _step.value;
-    card.addEventListener('click', clicksUp);
+    if (choice2 === choice1) {
+      pairs++;
+      choice1 = false;
+      choice2 = false;
+
+      if (pairs === 9) {
+        alert('Bravo, vous avez trouvé les 9 paires !!!');
+      }
+    } else {
+      choice1 = false;
+      choice2 = false;
+      document.getElementById(cardName1).className = "img-thumbnail";
+      document.getElementById(cardName2).className = "img-thumbnail";
+    }
   }
-} catch (err) {
-  _iterator.e(err);
-} finally {
-  _iterator.f();
 }
 
 /***/ }),

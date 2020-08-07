@@ -19,8 +19,8 @@
                         <div class="d-flex flex-row cards-table">
                             @foreach($images as $image)
                                     <div class="col-2 mb-3">
-                                        <button class="card-link" id="card{{ $loop->index +1 }}">
-                                            <img src="{{ $image }}" class="img-thumbnail" alt="">
+                                        <button class="card-link">
+                                            <img src="{{ $image }}" class="img-thumbnail" id="card{{ $loop->index+1 }}" alt="">
                                         </button>
                                     </div>
                             @endforeach
