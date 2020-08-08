@@ -36,6 +36,8 @@ function clicksUp() {
     if (!choice1) {
         choice1 = this.src;
         cardName1 = this.id;
+        document.getElementById(cardName1).parentElement.className += " avoid-clicks";
+        document.getElementById(cardName1).className += " avoid-clicks";
     } else {
         choice2 = this.src;
         cardName2 = this.id;
@@ -43,8 +45,6 @@ function clicksUp() {
             pairs++;
             choice1 = false;
             choice2 = false;
-            document.getElementById(cardName1).parentElement.className += " avoid-clicks";
-            document.getElementById(cardName1).className += " avoid-clicks";
             document.getElementById(cardName2).parentElement.className += " avoid-clicks";
             document.getElementById(cardName2).className += " avoid-clicks";
             if (pairs === 9) {
@@ -55,7 +55,7 @@ function clicksUp() {
             choice1 = false;
             choice2 = false;
             for( card of cards ) {
-                card.className += " avoid-clicks";
+                card.className = "card-link avoid-clicks";
             }
             setTimeout(function(){
                 for( card of cards ) {
