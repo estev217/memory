@@ -31,7 +31,7 @@
                                     <label for="clicks">Nombre de click :</label>
                                     <p id="clicks-done">0</p>
 
-                                    <input type="number" id="clicks" name="clicks">
+                                    <input type="number" id="clicks" name="clicks" value="0">
 
                                 </div>
                                 <div class="end-buttons-off" id="end-buttons">

@@ -1,4 +1,5 @@
 let score = document.getElementById('clicks-done');
+let form = document.getElementById('clicks');
 
 let card1 = document.getElementById('card1').addEventListener('click', clicksUp);
 let card2 = document.getElementById('card2').addEventListener('click', clicksUp);
@@ -27,6 +28,7 @@ let pairs = 0;
 
 function clicksUp() {
     score.innerText++;
+    form.value++;
     this.className += " card-clicked";
     if (!choice1) {
         choice1 = this.src;

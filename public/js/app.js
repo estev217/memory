@@ -49882,6 +49882,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports) {
 
 var score = document.getElementById('clicks-done');
+var form = document.getElementById('clicks');
 var card1 = document.getElementById('card1').addEventListener('click', clicksUp);
 var card2 = document.getElementById('card2').addEventListener('click', clicksUp);
 var card3 = document.getElementById('card3').addEventListener('click', clicksUp);
@@ -49908,6 +49909,7 @@ var pairs = 0;
 
 function clicksUp() {
   score.innerText++;
+  form.value++;
   this.className += " card-clicked";
 
   if (!choice1) {
