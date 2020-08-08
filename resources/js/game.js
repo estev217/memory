@@ -20,6 +20,9 @@ let card16 = document.getElementById('card16').addEventListener('click', clicksU
 let card17 = document.getElementById('card17').addEventListener('click', clicksUp);
 let card18 = document.getElementById('card18').addEventListener('click', clicksUp);
 
+let cards = document.getElementsByClassName('card-link');
+let card;
+
 let buttons = document.getElementById('end-buttons');
 
 let choice1, choice2 = false;
@@ -29,7 +32,7 @@ let pairs = 0;
 function clicksUp() {
     score.innerText++;
     form.value++;
-    this.className += " card-clicked";
+    this.className = "img-thumbnail card-clicked";
     if (!choice1) {
         choice1 = this.src;
         cardName1 = this.id;
@@ -47,8 +50,16 @@ function clicksUp() {
         } else {
             choice1 = false;
             choice2 = false;
-            document.getElementById(cardName1).className = "img-thumbnail";
-            document.getElementById(cardName2).className = "img-thumbnail";
+            for( card of cards ) {
+                card.className += " avoid-clicks";
+            }
+            setTimeout(function(){
+                for( card of cards ) {
+                    card.className = "card-link";
+                }
+                document.getElementById(cardName1).className = "img-thumbnail card-hidden";
+                document.getElementById(cardName2).className = "img-thumbnail card-hidden";
+                }, 1500);
         }
     }
 }

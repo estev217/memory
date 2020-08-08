@@ -49881,6 +49881,12 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 var score = document.getElementById('clicks-done');
 var form = document.getElementById('clicks');
 var card1 = document.getElementById('card1').addEventListener('click', clicksUp);
@@ -49901,6 +49907,8 @@ var card15 = document.getElementById('card15').addEventListener('click', clicksU
 var card16 = document.getElementById('card16').addEventListener('click', clicksUp);
 var card17 = document.getElementById('card17').addEventListener('click', clicksUp);
 var card18 = document.getElementById('card18').addEventListener('click', clicksUp);
+var cards = document.getElementsByClassName('card-link');
+var card;
 var buttons = document.getElementById('end-buttons');
 var choice1,
     choice2 = false;
@@ -49910,7 +49918,7 @@ var pairs = 0;
 function clicksUp() {
   score.innerText++;
   form.value++;
-  this.className += " card-clicked";
+  this.className = "img-thumbnail card-clicked";
 
   if (!choice1) {
     choice1 = this.src;
@@ -49931,8 +49939,39 @@ function clicksUp() {
     } else {
       choice1 = false;
       choice2 = false;
-      document.getElementById(cardName1).className = "img-thumbnail";
-      document.getElementById(cardName2).className = "img-thumbnail";
+
+      var _iterator = _createForOfIteratorHelper(cards),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          card = _step.value;
+          card.className += " avoid-clicks";
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      setTimeout(function () {
+        var _iterator2 = _createForOfIteratorHelper(cards),
+            _step2;
+
+        try {
+          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+            card = _step2.value;
+            card.className = "card-link";
+          }
+        } catch (err) {
+          _iterator2.e(err);
+        } finally {
+          _iterator2.f();
+        }
+
+        document.getElementById(cardName1).className = "img-thumbnail card-hidden";
+        document.getElementById(cardName2).className = "img-thumbnail card-hidden";
+      }, 1500);
     }
   }
 }

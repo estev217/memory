@@ -22,7 +22,7 @@ class ScoreController extends Controller
         return view('user_scores', ['scores' => Score::all()->where('user_id', $id)->sortBy('value')]);
     }
 
-    public function game(Request $request)
+    public function game()
     {
         $card1 = asset('/images/365_Sylvain.jpg');
         $card2 = asset('/images/367_Fred.jpg');

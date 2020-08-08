@@ -20,7 +20,7 @@
                             @foreach($images as $image)
                                     <div class="col-2 mb-3">
                                         <button class="card-link">
-                                            <img src="{{ $image }}" class="img-thumbnail" id="card{{ $loop->index+1 }}" alt="">
+                                            <img src="{{ $image }}" class="img-thumbnail card-hidden" id="card{{ $loop->index+1 }}" alt="">
                                         </button>
                                     </div>
                             @endforeach
@@ -31,7 +31,7 @@
                                     <label for="clicks">Nombre de click :</label>
                                     <p id="clicks-done">0</p>
 
-                                    <input type="number" id="clicks" name="clicks" value="0">
+                                    <input type="number" id="clicks" name="clicks" value="0" hidden>
 
                                 </div>
                                 <div class="end-buttons-off" id="end-buttons">

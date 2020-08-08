@@ -12,7 +12,14 @@
     text-align: center;
 }
 
-.card-clicked {
-    opacity: 0.5;
+.card-hidden {
+    opacity: 0;
 }
 
+.card-clicked {
+    opacity: 1;
+}
+
+.avoid-clicks {
+    pointer-events: none;
+}
