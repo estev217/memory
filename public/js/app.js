@@ -49931,6 +49931,10 @@ function clicksUp() {
       pairs++;
       choice1 = false;
       choice2 = false;
+      document.getElementById(cardName1).parentElement.className += " avoid-clicks";
+      document.getElementById(cardName1).className += " avoid-clicks";
+      document.getElementById(cardName2).parentElement.className += " avoid-clicks";
+      document.getElementById(cardName2).className += " avoid-clicks";
 
       if (pairs === 9) {
         buttons.className = "end-buttons-on";
