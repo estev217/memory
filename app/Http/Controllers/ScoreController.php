@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Score;
 use Illuminate\Foundation\Auth\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ScoreController extends Controller
@@ -48,6 +49,18 @@ class ScoreController extends Controller
         shuffle($cards);
 
         return view('game', ['images' => $cards]);
+    }
+
+    public function store(Request $request)
+    {
+        $score = new Score;
+        $score->value = $request->clicks;
+        $score->created_at = date('Y-d-m H:i:s');
+        $score->updated_at = date('Y-d-m H:i:s');
+        $score->user_id = Auth::id();
+        $score->save();
+
+        return redirect('scores');
     }
 
 }

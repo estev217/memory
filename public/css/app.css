@@ -10969,7 +10969,15 @@ a.text-dark:focus {
   text-align: center;
 }
 
+.card-hidden {
+  opacity: 0;
+}
+
 .card-clicked {
-  opacity: 0.5;
+  opacity: 1;
+}
+
+.avoid-clicks {
+  pointer-events: none;
 }
 

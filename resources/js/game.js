@@ -1,4 +1,5 @@
 let score = document.getElementById('clicks-done');
+let form = document.getElementById('clicks');
 
 let card1 = document.getElementById('card1').addEventListener('click', clicksUp);
 let card2 = document.getElementById('card2').addEventListener('click', clicksUp);
@@ -19,6 +20,9 @@ let card16 = document.getElementById('card16').addEventListener('click', clicksU
 let card17 = document.getElementById('card17').addEventListener('click', clicksUp);
 let card18 = document.getElementById('card18').addEventListener('click', clicksUp);
 
+let cards = document.getElementsByClassName('card-link');
+let card;
+
 let buttons = document.getElementById('end-buttons');
 
 let choice1, choice2 = false;
@@ -27,10 +31,13 @@ let pairs = 0;
 
 function clicksUp() {
     score.innerText++;
-    this.className += " card-clicked";
+    form.value++;
+    this.className = "img-thumbnail card-clicked";
     if (!choice1) {
         choice1 = this.src;
         cardName1 = this.id;
+        document.getElementById(cardName1).parentElement.className += " avoid-clicks";
+        document.getElementById(cardName1).className += " avoid-clicks";
     } else {
         choice2 = this.src;
         cardName2 = this.id;
@@ -38,6 +45,8 @@ function clicksUp() {
             pairs++;
             choice1 = false;
             choice2 = false;
+            document.getElementById(cardName2).parentElement.className += " avoid-clicks";
+            document.getElementById(cardName2).className += " avoid-clicks";
             if (pairs === 9) {
                 buttons.className = "end-buttons-on";
                 alert('Bravo, vous avez trouvé les 9 paires en ' + score.innerText + ' coups !!!');
@@ -45,8 +54,16 @@ function clicksUp() {
         } else {
             choice1 = false;
             choice2 = false;
-            document.getElementById(cardName1).className = "img-thumbnail";
-            document.getElementById(cardName2).className = "img-thumbnail";
+            for( card of cards ) {
+                card.className = "card-link avoid-clicks";
+            }
+            setTimeout(function(){
+                for( card of cards ) {
+                    card.className = "card-link";
+                }
+                document.getElementById(cardName1).className = "img-thumbnail card-hidden";
+                document.getElementById(cardName2).className = "img-thumbnail card-hidden";
+                }, 1500);
         }
     }
 }

@@ -20,20 +20,25 @@
                             @foreach($images as $image)
                                     <div class="col-2 mb-3">
                                         <button class="card-link">
-                                            <img src="{{ $image }}" class="img-thumbnail" id="card{{ $loop->index+1 }}" alt="">
+                                            <img src="{{ $image }}" class="img-thumbnail card-hidden" id="card{{ $loop->index+1 }}" alt="">
                                         </button>
                                     </div>
                             @endforeach
                         </div>
-                        <div class="text-center mb-3">
-                            <label for="clicks">Nombre de click :</label>
-                            <p id="clicks-done">0</p>
-                            <input type="number" id="clicks" name="clicks" hidden>
-                        </div>
-                        <div class="end-buttons-off" id="end-buttons">
-                            <a class="btn btn-lg btn-outline-primary mb-3">Enregistrer mon score et voir le classement</a>
-                            <a class="btn btn-lg btn-outline-danger" href="{{ route('game') }}">Lancer une nouvelle partie sans sauvegarder</a>
-                        </div>
+                            <form method="POST" action="{{ route('scores') }}">
+                                @csrf
+                                <div class="text-center mb-3">
+                                    <label for="clicks">Nombre de click :</label>
+                                    <p id="clicks-done">0</p>
+
+                                    <input type="number" id="clicks" name="clicks" value="0" hidden>
+
+                                </div>
+                                <div class="end-buttons-off" id="end-buttons">
+                                    <button class="btn btn-lg btn-outline-primary mb-3" type="submit">Enregistrer mon score et voir le classement</button>
+                                    <a class="btn btn-lg btn-outline-danger" href="{{ route('game') }}">Lancer une nouvelle partie sans sauvegarder</a>
+                                </div>
+                        </form>
                     </div>
                 </div>
             </div>
