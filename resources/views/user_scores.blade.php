@@ -21,12 +21,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @if(count($scores) > 0)
                                         @foreach ($scores as $score)
                                                 <tr class="text-center">
                                                     <td>{{ $score->value }}</td>
                                                     <td>{{ date_format(($score->created_at), 'd/m/Y H:i') }}</td>
                                                 </tr>
                                         @endforeach
+                                        @else
+                                            <tr class="text-center">
+                                                <td>
+                                                    <p>Aucun score enregistré.</p>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                        @endif
                                     </tbody>
                             </table>
                     </div>

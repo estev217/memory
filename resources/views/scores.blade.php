@@ -23,7 +23,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                        @if(count($scores) > 0)
                                             @foreach ($scores as $score)
                                                 <tr class="text-center">
                                                     <td>{{ $loop->index +1 }} </td>
@@ -32,7 +32,9 @@
                                                     <td>{{ date_format(($score->created_at), 'd/m/Y H:i' ) }}</td>
                                                 </tr>
                                             @endforeach
-
+                                        @else
+                                        <p>Aucun score n'a été établi pour le moment.</p>
+                                        @endif
                                     </tbody>
                             </table>
                     </div>
