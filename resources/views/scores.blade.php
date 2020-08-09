@@ -33,7 +33,9 @@
                                                 </tr>
                                             @endforeach
                                         @else
-                                        <p>Aucun score n'a été établi pour le moment.</p>
+                                        <tr class="text-center">
+                                            <td>Aucun score n'a été établi pour le moment.</td>
+                                        </tr>
                                         @endif
                                     </tbody>
                             </table>
