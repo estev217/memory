@@ -13,10 +13,9 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                            <table>
+                            <table class="table">
                                     <thead>
                                         <tr class="text-center">
-                                            <th>#</th>
                                             <th>Score</th>
                                             <th>Date</th>
                                         </tr>
@@ -24,9 +23,8 @@
                                     <tbody>
                                         @foreach ($scores as $score)
                                                 <tr class="text-center">
-                                                    <td>{{ $loop->index +1 }} </td>
                                                     <td>{{ $score->value }}</td>
-                                                    <td>{{ date_format(($score->created_at), 'd m Y H:i') }}</td>
+                                                    <td>{{ date_format(($score->created_at), 'd/m/Y H:i') }}</td>
                                                 </tr>
                                         @endforeach
                                     </tbody>

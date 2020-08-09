@@ -13,7 +13,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                            <table>
+                            <table class="table">
                                     <thead>
                                         <tr class="text-center">
                                             <th>#</th>
@@ -29,7 +29,7 @@
                                                     <td>{{ $loop->index +1 }} </td>
                                                     <td>{{ $score->value }}</td>
                                                     <td>{{ $score->user->name }}</td>
-                                                    <td>{{ date_format(($score->created_at), 'd-m-Y H:i' ) }}</td>
+                                                    <td>{{ date_format(($score->created_at), 'd/m/Y H:i' ) }}</td>
                                                 </tr>
                                             @endforeach
 
