@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/welcome', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/hello', function () {
     return view('hello');
@@ -25,5 +25,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/scores', 'ScoreController@index')->name('scores');
+
+Route::get('/user_scores', 'ScoreController@scores')->name('user_scores');
+
+Route::get('/game', 'ScoreController@game')->name('game');
+
+Route::post('scores', 'ScoreController@store')->name('store');
+

@@ -1,0 +1,26 @@
+.cards-table {
+    flex-wrap: wrap;
+}
+
+.end-buttons-off {
+    display: none;
+    text-align: center;
+}
+
+.end-buttons-on {
+    display: block;
+    text-align: center;
+}
+
+.card-hidden {
+    opacity: 0;
+}
+
+.card-clicked {
+    opacity: 1;
+}
+
+.avoid-clicks {
+    pointer-events: none;
+}
+
