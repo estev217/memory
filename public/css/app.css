@@ -10981,3 +10981,7 @@ a.text-dark:focus {
   pointer-events: none;
 }
 
+.myscore {
+  background-color: #1f6fb2;
+}
+
