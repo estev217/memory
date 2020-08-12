@@ -15,6 +15,18 @@ class ScoreController extends Controller
         return view('scores', ['scores' => Score::all()->sortBy('value')]);
     }
 
+    public function ranking()
+    {
+        $userId = Auth::id();
+        $userLastScore = Score::all()->sortByDesc('created_at')->where('user_id', $userId)->first();
+        $lastScoreId = $userLastScore->getAttributes()['id'];
+
+        return view('ranking', [
+            'scores' => Score::all()->sortBy('value'),
+            'lastScoreId' => $lastScoreId
+        ]);
+    }
+
     public function scores()
     {
         $id = Auth::id();
@@ -55,12 +67,12 @@ class ScoreController extends Controller
     {
         $score = new Score;
         $score->value = $request->clicks;
-        $score->created_at = date('Y-d-m H:i:s');
-        $score->updated_at = date('Y-d-m H:i:s');
+        $score->created_at = date('Y-m-d H:i:s', strtotime('+2 hours'));
+        $score->updated_at = date('Y-m-d H:i:s', strtotime('+2 hours'));
         $score->user_id = Auth::id();
         $score->save();
 
-        return redirect('scores');
+        return redirect('ranking');
     }
 
 }
