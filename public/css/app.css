@@ -10981,3 +10981,43 @@ a.text-dark:focus {
   pointer-events: none;
 }
 
+.myscore {
+  background-color: #1f8fd0;
+  -webkit-animation: flash linear 1s infinite;
+          animation: flash linear 1s infinite;
+}
+
+@-webkit-keyframes flash {
+  0% {
+    -webkit-filter: brightness(100%);
+            filter: brightness(100%);
+  }
+
+  50% {
+    -webkit-filter: brightness(150%);
+            filter: brightness(150%);
+  }
+
+  100% {
+    -webkit-filter: brightness(100%);
+            filter: brightness(100%);
+  }
+}
+
+@keyframes flash {
+  0% {
+    -webkit-filter: brightness(100%);
+            filter: brightness(100%);
+  }
+
+  50% {
+    -webkit-filter: brightness(150%);
+            filter: brightness(150%);
+  }
+
+  100% {
+    -webkit-filter: brightness(100%);
+            filter: brightness(100%);
+  }
+}
+
